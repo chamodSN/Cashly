@@ -59,17 +59,17 @@ Transactions can be backed up and restored as JSON through the app-private inter
 
 ## UI Preview
 
-| Screen | Preview |
-| --- | --- |
-| Splash screen | ![Splash screen](UI/splash%20screen.jpeg) |
-| Onboarding 1 | ![Onboarding 1](UI/onboard%201.jpeg) |
-| Onboarding 2 | ![Onboarding 2](UI/onboard%202.jpeg) |
-| Onboarding 3 | ![Onboarding 3](UI/onboard%203.jpeg) |
-| Name setup | ![Name setup](UI/add%20name%20screen.jpeg) |
-| Currency selection | ![Currency selection](UI/currency%20selection%20screen.jpeg) |
-| Home | ![Home](UI/Home.jpeg) |
-| Analytics | ![Analytics](UI/Analytics.jpeg) |
-| Profile | ![Profile](UI/Profile.jpeg) |
+| Group | Screen | Purpose | Preview |
+| --- | --- | --- | --- |
+| Common flow | Splash screen | Entry point and initial routing | ![Splash screen](UI/splash%20screen.jpeg) |
+| Common flow | Onboarding 1 | Introduces the app | ![Onboarding 1](UI/onboard%201.jpeg) |
+| Common flow | Onboarding 2 | Continues the introduction | ![Onboarding 2](UI/onboard%202.jpeg) |
+| Common flow | Onboarding 3 | Final onboarding step | ![Onboarding 3](UI/onboard%203.jpeg) |
+| Common flow | Name setup | Collects the user name | ![Name setup](UI/add%20name%20screen.jpeg) |
+| Common flow | Currency selection | Stores the preferred base currency | ![Currency selection](UI/currency%20selection%20screen.jpeg) |
+| Dashboard | Home | Shows the transaction list and add actions | ![Home](UI/Home.jpeg) |
+| Dashboard | Analytics | Summarizes income, expenses, and balance | ![Analytics](UI/Analytics.jpeg) |
+| Dashboard | Profile | Manages name, currency, budget, backup, and restore | ![Profile](UI/Profile.jpeg) |
 
 ## Project Structure
 
