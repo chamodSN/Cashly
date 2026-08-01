@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".navigation.Home"
+    android:id="@+id/fragment_container">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp" />
+
+
+
+    <!-- Main FAB -->
+    <!-- Expense Button (bottom right, lower) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/mainFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Add expense"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/primary"
+        app:srcCompat="@drawable/baseline_add_24" />
+
+    <!-- Income Button (above expense) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/incomeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="96dp"
+        android:contentDescription="Add income"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/green"
+        app:srcCompat="@drawable/arrow_upward_24" />
+
+    <!-- Main FAB (above income) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/expencesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="168dp"
+        android:contentDescription="Add transaction"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/red"
+        app:srcCompat="@drawable/arrow_downward_24" />
+
+</FrameLayout>

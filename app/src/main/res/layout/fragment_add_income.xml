@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".transactionfragments.AddIncome">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvFormTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_new_income"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Title -->
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_title"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <!-- Amount -->
+            <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_amount"
+                android:inputType="numberDecimal"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <!-- Date -->
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_date"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#DDDDDD"
+                android:padding="8dp"
+                android:entries="@array/income_categories_array"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Add Transaction Button -->
+            <Button
+                android:id="@+id/btnAddTransaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:text="@string/add_income_btn_txt"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:cornerRadius="0dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

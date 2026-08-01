@@ -1,0 +1,4069 @@
+Cashly project code export
+Generated: 2026-07-31 20:02:09
+
+Files included:
+- app\build.gradle.kts
+- app\src\androidTest\java\com\example\cashly\ExampleInstrumentedTest.kt
+- app\src\main\AndroidManifest.xml
+- app\src\main\java\com\example\cashly\adapters\TransactionAdapter.kt
+- app\src\main\java\com\example\cashly\dao\TransactionDAO.kt
+- app\src\main\java\com\example\cashly\database\AppDatabase.kt
+- app\src\main\java\com\example\cashly\database\TransactionRepository.kt
+- app\src\main\java\com\example\cashly\logo\SplashActivity.kt
+- app\src\main\java\com\example\cashly\MainActivity.kt
+- app\src\main\java\com\example\cashly\models_entity\Transaction.kt
+- app\src\main\java\com\example\cashly\navigation\Analytics.kt
+- app\src\main\java\com\example\cashly\navigation\BottomNavBar.kt
+- app\src\main\java\com\example\cashly\navigation\Home.kt
+- app\src\main\java\com\example\cashly\navigation\Profile.kt
+- app\src\main\java\com\example\cashly\navigation\TransactionDetailsFragment.kt
+- app\src\main\java\com\example\cashly\onboardscreens\OnBoard01.kt
+- app\src\main\java\com\example\cashly\onboardscreens\OnBoard02.kt
+- app\src\main\java\com\example\cashly\onboardscreens\OnBoard03.kt
+- app\src\main\java\com\example\cashly\startinguserprefs\CurrencySelectionActivity.kt
+- app\src\main\java\com\example\cashly\startinguserprefs\UserNameActivity.kt
+- app\src\main\java\com\example\cashly\transactionfragments\AddExpence.kt
+- app\src\main\java\com\example\cashly\transactionfragments\AddIncome.kt
+- app\src\main\java\com\example\cashly\utils\FileManager.kt
+- app\src\main\java\com\example\cashly\utils\SharedPreferenceManager.kt
+- app\src\main\java\com\example\cashly\viewmodel\TransactionViewModel.kt
+- app\src\main\res\drawable\arrow_downward_24.xml
+- app\src\main\res\drawable\arrow_upward_24.xml
+- app\src\main\res\drawable\baseline_account_balance_24.xml
+- app\src\main\res\drawable\baseline_account_circle_24.xml
+- app\src\main\res\drawable\baseline_add_24.xml
+- app\src\main\res\drawable\baseline_attach_money_24.xml
+- app\src\main\res\drawable\baseline_bar_chart_24.xml
+- app\src\main\res\drawable\floating_add.xml
+- app\src\main\res\drawable\ic_analytics.xml
+- app\src\main\res\drawable\ic_home.xml
+- app\src\main\res\drawable\ic_launcher_background.xml
+- app\src\main\res\drawable\ic_launcher_foreground.xml
+- app\src\main\res\drawable\ic_notification.xml
+- app\src\main\res\drawable\ic_profile.xml
+- app\src\main\res\drawable\ic_transactions.xml
+- app\src\main\res\font\roboto_black.xml
+- app\src\main\res\font\roboto_medium.xml
+- app\src\main\res\font\roboto.xml
+- app\src\main\res\layout\activity_bottom_nav_bar.xml
+- app\src\main\res\layout\activity_currency_selection.xml
+- app\src\main\res\layout\activity_main.xml
+- app\src\main\res\layout\activity_on_board01.xml
+- app\src\main\res\layout\activity_on_board02.xml
+- app\src\main\res\layout\activity_on_board03.xml
+- app\src\main\res\layout\activity_splash.xml
+- app\src\main\res\layout\activity_user_name.xml
+- app\src\main\res\layout\fragment_add_expence.xml
+- app\src\main\res\layout\fragment_add_income.xml
+- app\src\main\res\layout\fragment_analytics.xml
+- app\src\main\res\layout\fragment_home.xml
+- app\src\main\res\layout\fragment_profile.xml
+- app\src\main\res\layout\fragment_transaction_details.xml
+- app\src\main\res\layout\transaction_item.xml
+- app\src\main\res\menu\bottom_nav_menu.xml
+- app\src\main\res\menu\bottom_nav.xml
+- app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml
+- app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml
+- app\src\main\res\values-night\themes.xml
+- app\src\main\res\values\colors.xml
+- app\src\main\res\values\font_certs.xml
+- app\src\main\res\values\ic_launcher_background.xml
+- app\src\main\res\values\preloaded_fonts.xml
+- app\src\main\res\values\strings.xml
+- app\src\main\res\values\styles.xml
+- app\src\main\res\values\themes.xml
+- app\src\main\res\xml\backup_rules.xml
+- app\src\main\res\xml\data_extraction_rules.xml
+- app\src\test\java\com\example\cashly\ExampleUnitTest.kt
+- build.gradle.kts
+- gradle.properties
+- gradle\wrapper\gradle-wrapper.properties
+- local.properties
+- settings.gradle.kts
+
+================================================================================
+FILE: app\build.gradle.kts
+
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    id("org.jetbrains.kotlin.kapt")
+}
+
+android {
+    namespace = "com.example.cashly"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.example.cashly"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+dependencies {
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("com.airbnb.android:lottie:6.1.0")
+    implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("androidx.cardview:cardview:1.0.0")
+
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+
+    implementation ("androidx.fragment:fragment-ktx:1.5.7")
+
+}
+
+
+================================================================================
+FILE: app\src\androidTest\java\com\example\cashly\ExampleInstrumentedTest.kt
+
+package com.example.cashly
+
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.ext.junit.runners.AndroidJUnit4
+
+import org.junit.Test
+import org.junit.runner.RunWith
+
+import org.junit.Assert.*
+
+/**
+ * Instrumented test, which will execute on an Android device.
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+@RunWith(AndroidJUnit4::class)
+class ExampleInstrumentedTest {
+    @Test
+    fun useAppContext() {
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        assertEquals("com.example.cashly", appContext.packageName)
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\AndroidManifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Cashly"
+        tools:targetApi="31">
+        <activity
+            android:name=".navigation.BottomNavBar"
+            android:exported="false" />
+        <activity
+            android:name=".startinguserprefs.UserNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startinguserprefs.CurrencySelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".onboardscreens.OnBoard01"
+            android:exported="false" />
+        <activity
+            android:name=".onboardscreens.OnBoard02"
+            android:exported="false" />
+        <activity
+            android:name=".onboardscreens.OnBoard03"
+            android:exported="false" />
+        <activity
+            android:name=".logo.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\adapters\TransactionAdapter.kt
+
+package com.example.cashly.adapters
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import com.example.cashly.R
+import com.example.cashly.models_entity.Transaction
+
+class TransactionAdapter(
+    private val transactionList: MutableList<Transaction>, // Make it mutable to update the list
+    private val updateTransactionInDatabase: (Transaction) -> Unit // Lambda to handle update in ViewModel or Repository
+) : RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
+
+    class TransactionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val tvDay: TextView = view.findViewById(R.id.tvDay)
+        val tvDayName: TextView = view.findViewById(R.id.tvDayName)
+        val tvDate: TextView = view.findViewById(R.id.tvDate)
+        val tvCategory: TextView = view.findViewById(R.id.tvCategory)
+        val tvAmount: TextView = view.findViewById(R.id.tvAmount)
+        val tvCurrencySymbol: TextView = view.findViewById(R.id.tvCurrencySymbol)
+        val ivCategory: ImageView = view.findViewById(R.id.ivCategory)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.transaction_item, parent, false)
+        return TransactionViewHolder(view)
+    }
+
+    override fun getItemCount(): Int = transactionList.size
+
+    override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
+        val transaction = transactionList[position]
+
+        // Date parsing and setting other fields as before...
+        try {
+            val inputFormat = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
+            val outputDay = java.text.SimpleDateFormat("dd", java.util.Locale.getDefault())
+            val outputDayName = java.text.SimpleDateFormat("EEE", java.util.Locale.getDefault())
+            val outputMonthYear = java.text.SimpleDateFormat("MM.yyyy", java.util.Locale.getDefault())
+
+            val date = inputFormat.parse(transaction.date)
+
+            if (date != null) {
+                holder.tvDay.text = outputDay.format(date)
+                holder.tvDayName.text = outputDayName.format(date)
+                holder.tvDate.text = outputMonthYear.format(date)
+            } else {
+                holder.tvDay.text = "-"
+                holder.tvDayName.text = "-"
+                holder.tvDate.text = transaction.date
+            }
+        } catch (e: Exception) {
+            holder.tvDay.text = "-"
+            holder.tvDayName.text = "-"
+            holder.tvDate.text = transaction.date
+        }
+
+        // Set category and amount as before
+        holder.tvCategory.text = transaction.category
+        holder.tvAmount.text = String.format("%.2f", transaction.amount)
+
+        // Change color based on type
+        val context = holder.itemView.context
+        val colorRes = if (transaction.type.equals("expense", ignoreCase = true)) {
+            R.color.red_500
+        } else {
+            R.color.green_500
+        }
+        holder.tvAmount.setTextColor(ContextCompat.getColor(context, colorRes))
+        holder.tvCurrencySymbol.setTextColor(ContextCompat.getColor(context, colorRes))
+
+        // Update transaction on click (you can add an update button or set an OnClickListener)
+        holder.itemView.setOnClickListener {
+            // This is where the update happens
+            // You can pass updated values and call the update function
+            val updatedTransaction = transaction.copy(amount = 500.0) // Example of updating the amount
+            updateTransactionInDatabase(updatedTransaction) // Call to ViewModel or Repository
+            updateTransaction(updatedTransaction) // Update adapter list if necessary
+        }
+    }
+
+    // Method to update a transaction in the list
+    fun updateTransaction(updatedTransaction: Transaction) {
+        val index = transactionList.indexOfFirst { it.id == updatedTransaction.id }
+
+        if (index != -1) {
+            transactionList[index] = updatedTransaction
+            notifyItemChanged(index)
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\dao\TransactionDAO.kt
+
+package com.example.cashly.dao
+
+import androidx.lifecycle.LiveData
+import androidx.room.*
+import com.example.cashly.models_entity.Transaction
+
+interface TransactionDAO {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(transaction: Transaction)
+
+    @Update
+    suspend fun update(transaction: Transaction)
+
+    @Delete
+    suspend fun delete(transaction: Transaction)
+
+    @Query("SELECT * FROM transactions ORDER BY date DESC")
+    fun getAllTransactions(): LiveData<List<Transaction>>
+
+    @Query("SELECT * FROM transactions WHERE category = :category")
+    fun getTransactionsByCategory(category: String): LiveData<List<Transaction>>
+
+    @Query("SELECT * FROM transactions WHERE type = :type")
+    fun getTransactionsByType(type: String): LiveData<List<Transaction>>
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\database\AppDatabase.kt
+
+package com.example.cashly.database
+
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.example.cashly.dao.TransactionDAO
+import com.example.cashly.models_entity.Transaction
+
+@Database(entities = [Transaction::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun transactionDao(): TransactionDAO
+
+    companion object {
+        @Volatile private var INSTANCE: AppDatabase? = null
+
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "finance_tracker_db"
+                ).build()
+                INSTANCE = instance
+                instance
+            }
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\database\TransactionRepository.kt
+
+package com.example.cashly.database
+
+import androidx.lifecycle.LiveData
+import com.example.cashly.dao.TransactionDAO
+import com.example.cashly.models_entity.Transaction
+
+class TransactionRepository(private val dao: TransactionDAO) {
+
+    val allTransactions: LiveData<List<Transaction>> = dao.getAllTransactions()
+
+    suspend fun insert(transaction: Transaction) = dao.insert(transaction)
+
+    suspend fun update(transaction: Transaction) = dao.update(transaction)
+
+    suspend fun delete(transaction: Transaction) = dao.delete(transaction)
+
+    fun getByCategory(category: String) = dao.getTransactionsByCategory(category)
+
+    fun getByType(type: String) = dao.getTransactionsByType(type)
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\logo\SplashActivity.kt
+
+package com.example.cashly.logo
+
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.cashly.R
+import com.example.cashly.navigation.BottomNavBar
+import com.example.cashly.onboardscreens.OnBoard01
+import com.example.cashly.utils.SharedPreferenceManager
+
+class SplashActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_splash)
+
+        val isInitialSetupDone = SharedPreferenceManager(this).getInitialSetupFlag()
+
+        if (isInitialSetupDone) {
+            // If setup is done, navigate to BottomNavBar after a 3-second delay
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this, BottomNavBar::class.java))
+                finish() // Optionally close this activity
+            }, 3000)
+        } else {
+            // If setup is not done, navigate to OnBoard01 after a 3-second delay
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this, OnBoard01::class.java))
+                finish() // Optionally close this activity
+            }, 3000)
+        }
+
+
+
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\MainActivity.kt
+
+package com.example.cashly
+
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\models_entity\Transaction.kt
+
+package com.example.cashly.models_entity
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "transactions")
+data class Transaction(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val title: String,
+    val amount: Double,
+    val category: String,
+    val date: String,
+    val type: String
+)
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\navigation\Analytics.kt
+
+package com.example.cashly.navigation
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.cashly.R
+import com.example.cashly.utils.SharedPreferenceManager
+
+
+class Analytics : Fragment() {
+
+    private lateinit var transactionRepository: TransactionRepository
+    private lateinit var tvIncome: TextView
+    private lateinit var tvExpenses: TextView
+    private lateinit var tvTotal: TextView
+    private lateinit var tvTotalIncome: TextView
+    private lateinit var tvTotalExpense: TextView
+    private lateinit var rvIncomeCategories: RecyclerView
+    private lateinit var rvExpenseCategories: RecyclerView
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_analytics, container, false)
+
+        transactionRepository = TransactionRepository(SharedPreferenceManager(requireContext()))
+
+        val tvIncome = view.findViewById<TextView>(R.id.tvIncome)
+        val tvExpenses = view.findViewById<TextView>(R.id.tvExpenses)
+        val tvTotal = view.findViewById<TextView>(R.id.tvTotal)
+
+        // Use the repository method
+        val summary = transactionRepository.getMonthlySummary()
+
+        val income = summary["totalIncome"] ?: 0.0
+        val expenses = summary["totalExpense"] ?: 0.0
+        val balance = summary["balance"] ?: 0.0
+
+        tvIncome.text = String.format("%.2f", income)
+        tvExpenses.text = String.format("%.2f", expenses)
+        tvTotal.text = String.format("%.2f", balance)
+
+        return view
+    }
+
+
+companion object {
+    @JvmStatic
+    fun newInstance() = Analytics()
+
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\navigation\BottomNavBar.kt
+
+package com.example.cashly.navigation
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.cashly.R
+import com.example.cashly.databinding.ActivityBottomNavBarBinding
+
+class BottomNavBar : AppCompatActivity() {
+
+    private lateinit var binding: ActivityBottomNavBarBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityBottomNavBarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Load default fragment
+        replaceFragment(Home())
+
+        // Set listener for bottom nav items
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.home -> replaceFragment(Home())
+                R.id.profile -> replaceFragment(Profile())
+                R.id.analytics -> replaceFragment(Analytics())
+            }
+            true
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayoutForNavBar, fragment)
+            .commit()
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\navigation\Home.kt
+
+package com.example.cashly.navigation
+
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.cashly.R
+import com.example.cashly.adapters.TransactionAdapter
+import com.example.cashly.utils.SharedPreferenceManager
+import com.example.cashly.transactionfragments.AddExpence
+import com.example.cashly.transactionfragments.AddIncome
+import com.example.cashly.viewmodel.TransactionViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
+class Home : Fragment() {
+
+    private lateinit var mainFab: FloatingActionButton
+    private lateinit var incomeFab: FloatingActionButton
+    private lateinit var expenseFab: FloatingActionButton
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var sharedPreferenceManager: SharedPreferenceManager
+
+    private val transactionViewModel: TransactionViewModel by viewModels()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
+
+        mainFab = rootView.findViewById(R.id.mainFab)
+        incomeFab = rootView.findViewById(R.id.incomeBtn)
+        expenseFab = rootView.findViewById(R.id.expencesBtn)
+        recyclerView = rootView.findViewById(R.id.recyclerViewTransactions)
+
+        sharedPreferenceManager = SharedPreferenceManager(requireContext())
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Set up adapter with empty list initially
+        val transactionAdapter = TransactionAdapter(emptyList(), sharedPreferenceManager)
+        recyclerView.adapter = transactionAdapter
+
+        // Observe LiveData from ViewModel
+        transactionViewModel.allTransactions.observe(viewLifecycleOwner) { transactions ->
+            transactionAdapter.updateTransactions(transactions)
+        }
+
+        // FAB click listeners
+        mainFab.setOnClickListener {
+            if (incomeFab.visibility == View.VISIBLE) {
+                hideFABs()
+            } else {
+                showFABs()
+            }
+        }
+
+        incomeFab.setOnClickListener {
+            val addIncomeFragment = AddIncome.newInstance()
+            replaceFragment(addIncomeFragment)
+            hideFABs()
+        }
+
+        expenseFab.setOnClickListener {
+            val addExpenceFragment = AddExpence.newInstance()
+            replaceFragment(addExpenceFragment)
+            hideFABs()
+        }
+
+        // Initially hide FABs
+        incomeFab.visibility = View.GONE
+        expenseFab.visibility = View.GONE
+
+        return rootView
+    }
+
+    private fun showFABs() {
+        val incomeFabAnim = ObjectAnimator.ofFloat(incomeFab, "translationY", 0f)
+        val expenseFabAnim = ObjectAnimator.ofFloat(expenseFab, "translationY", 0f)
+        AnimatorSet().apply {
+            playTogether(incomeFabAnim, expenseFabAnim)
+            start()
+        }
+        incomeFab.visibility = View.VISIBLE
+        expenseFab.visibility = View.VISIBLE
+    }
+
+    private fun hideFABs() {
+        val incomeFabAnim = ObjectAnimator.ofFloat(incomeFab, "translationY", 500f)
+        val expenseFabAnim = ObjectAnimator.ofFloat(expenseFab, "translationY", 500f)
+        AnimatorSet().apply {
+            playTogether(incomeFabAnim, expenseFabAnim)
+            start()
+        }
+        incomeFab.visibility = View.GONE
+        expenseFab.visibility = View.GONE
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentTransaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = Home()
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\navigation\Profile.kt
+
+package com.example.cashly.navigation
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
+import androidx.fragment.app.Fragment
+import com.example.cashly.R
+import com.example.cashly.utils.FileManager
+import com.example.cashly.utils.SharedPreferenceManager
+
+class Profile : Fragment() {
+
+    private lateinit var sharedPreferenceManager: SharedPreferenceManager
+    private lateinit var etName: EditText
+    private lateinit var etBudget: EditText
+    private lateinit var saveNameButton: Button
+    private lateinit var currencySpinner: Spinner
+    private lateinit var saveCurrencyButton: Button
+    private lateinit var fileManager: FileManager
+    private lateinit var backupBtn: Button
+    private lateinit var restoreBtn: Button
+    private lateinit var budgetBtn: Button
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        try {
+            // Initialize views
+            etName = view.findViewById(R.id.etName)
+            saveNameButton = view.findViewById(R.id.saveName)
+            currencySpinner = view.findViewById(R.id.etCurrency)
+            saveCurrencyButton = view.findViewById(R.id.saveCurrency)
+            budgetBtn = view.findViewById(R.id.budgetBtn)
+            etBudget = view.findViewById(R.id.etBudget)
+            backupBtn = view.findViewById(R.id.backupBtn)
+            restoreBtn = view.findViewById(R.id.restoreBtn)
+
+            fileManager = FileManager(requireContext())
+            sharedPreferenceManager = SharedPreferenceManager(requireContext())
+
+            backupBtn.setOnClickListener {
+                try {
+                    fileManager.backupData()
+                    Toast.makeText(requireContext(), "Backup successful", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), "Backup failed: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            restoreBtn.setOnClickListener {
+                try {
+                    fileManager.restoreData()
+                    Toast.makeText(requireContext(), "Restore successful", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), "Restore failed: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            budgetBtn.setOnClickListener {
+                val budgetString = etBudget.text.toString()
+                if (budgetString.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please enter a budget", Toast.LENGTH_SHORT).show()
+                } else {
+                    val budget = budgetString.toFloatOrNull()
+                    if (budget == null || budget < 0) {
+                        Toast.makeText(requireContext(), "Please enter a valid positive budget", Toast.LENGTH_SHORT).show()
+                    } else {
+                        try {
+                            sharedPreferenceManager.saveBudget(budget)
+                            Toast.makeText(requireContext(), "Budget saved", Toast.LENGTH_SHORT).show()
+                        } catch (e: Exception) {
+                            Toast.makeText(requireContext(), "Error saving budget: ${e.message}", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+            }
+
+            saveNameButton.setOnClickListener {
+                val name = etName.text.toString()
+                if (name.isNotBlank()) {
+                    try {
+                        sharedPreferenceManager.savePreferredName(name)
+                        Toast.makeText(requireContext(), "Name saved", Toast.LENGTH_SHORT).show()
+                    } catch (e: Exception) {
+                        Toast.makeText(requireContext(), "Error saving name: ${e.message}", Toast.LENGTH_LONG).show()
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "Please enter your name", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            saveCurrencyButton.setOnClickListener {
+                val selectedCurrency = currencySpinner.selectedItem.toString()
+                if (selectedCurrency == "Select Base Currency") {
+                    Toast.makeText(requireContext(), "Please select a valid currency", Toast.LENGTH_SHORT).show()
+                } else {
+                    try {
+                        val symbol = getCurrencySymbol(selectedCurrency)
+                        sharedPreferenceManager.savePreferredCurrency(selectedCurrency, symbol)
+                        Toast.makeText(requireContext(), "Currency saved", Toast.LENGTH_SHORT).show()
+                        activity?.recreate()
+                    } catch (e: Exception) {
+                        Toast.makeText(requireContext(), "Error saving currency: ${e.message}", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+
+            loadSavedData()
+
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Initialization error: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+
+        return view
+    }
+
+    private fun loadSavedData() {
+        try {
+            val savedName = sharedPreferenceManager.getPreferredName()
+            etName.setText(savedName)
+
+            val savedCurrency = sharedPreferenceManager.getPreferredCurrency()
+            val currencyArray = resources.getStringArray(R.array.base_currencies_array)
+            val index = currencyArray.indexOf(savedCurrency)
+            if (index != -1) {
+                currencySpinner.setSelection(index)
+            }
+
+            val savedBudget = sharedPreferenceManager.getBudget()
+            etBudget.setText(savedBudget.toString())
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Error loading saved data: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun getCurrencySymbol(currency: String): String {
+        return when (currency) {
+            "USD - US Dollar" -> "$"
+            "EUR - Euro" -> "€"
+            "LKR - Sri Lankan Rupee" -> "Rs"
+            "INR - Indian Rupee" -> "₹"
+            "GBP - British Pound" -> "£"
+            "JPY - Japanese Yen" -> "¥"
+            "AUD - Australian Dollar" -> "A$"
+            "CAD - Canadian Dollar" -> "C$"
+            else -> ""
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\navigation\TransactionDetailsFragment.kt
+
+package com.example.cashly.navigation
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.cashly.databinding.FragmentTransactionDetailsBinding
+
+class TransactionDetailsFragment : Fragment() {
+
+    private lateinit var binding: FragmentTransactionDetailsBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout using ViewBinding
+        binding = FragmentTransactionDetailsBinding.inflate(inflater, container, false)
+
+
+        return binding.root
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\onboardscreens\OnBoard01.kt
+
+package com.example.cashly.onboardscreens
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.cashly.R
+
+class OnBoard01 : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_on_board01)
+
+        val nextBtn = findViewById<Button>(R.id.nextOB1)
+
+        nextBtn.setOnClickListener{
+
+            val intent = Intent(this, OnBoard02::class.java)
+            startActivity(intent)
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\onboardscreens\OnBoard02.kt
+
+package com.example.cashly.onboardscreens
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.cashly.R
+
+class OnBoard02 : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_on_board02)
+
+        setContentView(R.layout.activity_on_board02)
+
+        val nextBtn = findViewById<Button>(R.id.nextOB2)
+
+        nextBtn.setOnClickListener{
+
+            val intent = Intent(this, OnBoard03::class.java)
+            startActivity(intent)
+            }
+
+
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\onboardscreens\OnBoard03.kt
+
+package com.example.cashly.onboardscreens
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.cashly.R
+import com.example.cashly.startinguserprefs.UserNameActivity
+
+class OnBoard03 : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_on_board03)
+
+        val nextBtn = findViewById<Button>(R.id.getStarted)
+
+        nextBtn.setOnClickListener {
+
+            val intent = Intent(this, UserNameActivity::class.java)
+            startActivity(intent)
+            }
+    }
+
+
+    }
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\startinguserprefs\CurrencySelectionActivity.kt
+
+package com.example.cashly.startinguserprefs
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Spinner
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.cashly.R
+import com.example.cashly.navigation.BottomNavBar
+import com.example.cashly.utils.SharedPreferenceManager
+
+class CurrencySelectionActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        try {
+            enableEdgeToEdge()
+            setContentView(R.layout.activity_currency_selection)
+
+            val currencySelector: Spinner = findViewById(R.id.currencySelector)
+            val confirmButton: Button = findViewById(R.id.confirm)
+
+            confirmButton.setOnClickListener {
+                try {
+                    val selectedCurrency = currencySelector.selectedItem.toString()
+
+                    if (selectedCurrency == "Select Base Currency") {
+                        Toast.makeText(this, "Please select a valid currency", Toast.LENGTH_SHORT).show()
+                        currencySelector.requestFocus()
+                    } else {
+                        val currencySymbol = getCurrencySymbol(selectedCurrency)
+
+                        val sharedPreferenceManager = SharedPreferenceManager(this)
+                        sharedPreferenceManager.savePreferredCurrency(selectedCurrency, currencySymbol)
+                        sharedPreferenceManager.setInitialSetupFlag(true)
+
+                        val intent = Intent(this, BottomNavBar::class.java)
+                        startActivity(intent)
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Something went wrong: ${e.message}", Toast.LENGTH_LONG).show()
+                    e.printStackTrace()
+                }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "Initialization error: ${e.message}", Toast.LENGTH_LONG).show()
+            e.printStackTrace()
+        }
+    }
+
+    private fun getCurrencySymbol(currency: String): String {
+        return when (currency) {
+            "USD - US Dollar" -> "$"
+            "EUR - Euro" -> "€"
+            "LKR - Sri Lankan Rupee" -> "Rs"
+            "INR - Indian Rupee" -> "₹"
+            "GBP - British Pound" -> "£"
+            "JPY - Japanese Yen" -> "¥"
+            "AUD - Australian Dollar" -> "A$"
+            "CAD - Canadian Dollar" -> "C$"
+            else -> ""
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\startinguserprefs\UserNameActivity.kt
+
+package com.example.cashly.startinguserprefs
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import com.example.cashly.R
+import com.example.cashly.utils.SharedPreferenceManager
+
+class UserNameActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_user_name)
+
+        val etName = findViewById<EditText>(R.id.etName)
+        val nextBtn = findViewById<Button>(R.id.nextBtn)
+
+        nextBtn.setOnClickListener {
+            val name = etName.text.toString().trim()
+
+            when {
+                name.isEmpty() -> {
+                    etName.error = "Please enter your name"
+                    etName.requestFocus()
+                }
+                !name.matches(Regex("[a-zA-Z ]+")) -> {
+                    etName.error = "Name should only contain letters"
+                    etName.requestFocus()
+                }
+                else -> {
+                    val sharedPreferenceManager = SharedPreferenceManager(this)
+                    sharedPreferenceManager.savePreferredName(name)
+
+                    Toast.makeText(this, "Welcome, $name!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, CurrencySelectionActivity::class.java))
+                }
+            }
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\transactionfragments\AddExpence.kt
+
+package com.example.cashly.transactionfragments
+
+import android.app.DatePickerDialog
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.Fragment
+import com.example.cashly.R
+import com.example.cashly.models_entity.Transaction
+import com.example.cashly.utils.SharedPreferenceManager
+import java.util.Calendar
+
+class AddExpence : Fragment() {
+
+    private lateinit var etTitle: EditText
+    private lateinit var etAmount: EditText
+    private lateinit var etDate: EditText
+    private lateinit var spinnerCategory: Spinner
+    private lateinit var btnAddTransaction: Button
+    private lateinit var transactionRepository: TransactionRepository
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_add_expence, container, false)
+
+        // Initialize SharedPreferenceManager
+        val sharedPreferenceManager = SharedPreferenceManager(requireContext())
+
+        // Initialize the TransactionRepository with the SharedPreferenceManager
+        transactionRepository = TransactionRepository(sharedPreferenceManager)
+
+        // Initialize views
+        etTitle = view.findViewById(R.id.etTitle)
+        etAmount = view.findViewById(R.id.etAmount)
+        etDate = view.findViewById(R.id.etDate)
+        spinnerCategory = view.findViewById(R.id.spinnerCategory)
+        btnAddTransaction = view.findViewById(R.id.btnAddTransaction)
+
+        // Date picker logic
+        etDate.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val datePickerDialog = DatePickerDialog(
+                requireActivity(),
+                { _, year, month, dayOfMonth ->
+                    val selectedDate = "$dayOfMonth/${month + 1}/$year"
+                    etDate.setText(selectedDate)
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.show()
+        }
+
+        // Add button click logic for expense transaction
+        btnAddTransaction.setOnClickListener {
+            val title = etTitle.text.toString()
+            val amountString = etAmount.text.toString()
+            val date = etDate.text.toString()
+            val category = spinnerCategory.selectedItem.toString()
+            val type = "expense"  // Set type to "expense" for expense transactions
+
+            // Validate input
+            if (title.isEmpty() || amountString.isEmpty() || date.isEmpty() || category.isEmpty()) {
+                Toast.makeText(requireContext(), "All fields are required!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (title.length > 10) {
+                etTitle.error = "Title cannot be more than 10 characters!"
+                return@setOnClickListener
+            }
+
+            val amountDouble = amountString.toDouble()
+
+            if (amountDouble < 0) {
+                etAmount.error = "Amount cannot be negative!"
+                return@setOnClickListener
+            }
+
+            // Create a new expense transaction object
+            val transaction = Transaction(title, amountDouble, date, category, type)
+
+            // Add the transaction to the repository
+            transactionRepository.addTransaction(transaction)
+
+            // Show a success message
+            Toast.makeText(requireContext(), "Expense Added", Toast.LENGTH_SHORT).show()
+
+            // Clear input fields after adding the transaction
+            etTitle.text.clear()
+            etAmount.text.clear()
+            etDate.text.clear()
+            spinnerCategory.setSelection(0)
+        }
+
+        return view
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = AddExpence()
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\transactionfragments\AddIncome.kt
+
+package com.example.cashly.transactionfragments
+
+import android.app.DatePickerDialog
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.cashly.R
+import com.example.cashly.models_entity.Transaction
+import com.example.cashly.viewmodel.TransactionViewModel
+import java.util.Calendar
+
+class AddIncome : Fragment() {
+
+    private lateinit var etTitle: EditText
+    private lateinit var etAmount: EditText
+    private lateinit var etDate: EditText
+    private lateinit var spinnerCategory: Spinner
+    private lateinit var btnAddTransaction: Button
+    private lateinit var transactionViewModel: TransactionViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_add_income, container, false)
+
+        // Initialize the TransactionViewModel
+        transactionViewModel = ViewModelProvider(this).get(TransactionViewModel::class.java)
+
+        // Initialize views
+        etTitle = view.findViewById(R.id.etTitle)
+        etAmount = view.findViewById(R.id.etAmount)
+        etDate = view.findViewById(R.id.etDate)
+        spinnerCategory = view.findViewById(R.id.spinnerCategory)
+        btnAddTransaction = view.findViewById(R.id.btnAddTransaction)
+
+        // Date picker logic
+        etDate.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val datePickerDialog = DatePickerDialog(
+                requireActivity(),
+                { _, year, month, dayOfMonth ->
+                    val selectedDate = "$dayOfMonth/${month + 1}/$year"
+                    etDate.setText(selectedDate)
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.show()
+        }
+
+        // Add button click logic here (e.g., saving the income transaction)
+        btnAddTransaction.setOnClickListener {
+            val title = etTitle.text.toString()
+            val amountString = etAmount.text.toString()
+            val date = etDate.text.toString()
+            val category = spinnerCategory.selectedItem.toString()
+            val type = "income"
+
+            if (title.isEmpty() || amountString.isEmpty() || date.isEmpty() || category.isEmpty()) {
+                Toast.makeText(requireContext(), "All fields are required!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (title.length > 10) {
+                etTitle.error = "Title cannot be more than 10 characters!"
+                return@setOnClickListener
+            }
+
+            val amountDouble = amountString.toDouble()
+
+            if (amountDouble < 0) {
+                etAmount.error = "Amount cannot be negative!"
+                return@setOnClickListener
+            }
+
+            // Create a new transaction object
+            val transaction = Transaction(title, amountDouble, date, category, type)
+
+            // Add transaction using ViewModel
+            transactionViewModel.insert(transaction)
+
+            // Optionally, show a message or update UI after adding the transaction
+            Toast.makeText(requireContext(), "Transaction Added", Toast.LENGTH_SHORT).show()
+
+            // Clear the input fields
+            etTitle.text.clear()
+            etAmount.text.clear()
+            etDate.text.clear()
+            spinnerCategory.setSelection(0)
+        }
+
+        return view
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = AddIncome()
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\utils\FileManager.kt
+
+package com.example.cashly.utils
+
+import android.content.Context
+import android.widget.Toast
+import com.example.cashly.models_entity.Transaction
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileWriter
+import java.io.IOException
+
+class FileManager(private val context: Context) {
+
+    private val sharedPrefs = SharedPreferenceManager(context)
+    private val gson = Gson()
+
+    fun backupData() {
+        val transactions = sharedPrefs.getTransactions()
+        if (transactions.isEmpty()) {
+            Toast.makeText(context, "No transactions to back up", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        try {
+            val file = File(context.filesDir, "backup.json")
+            val writer = BufferedWriter(FileWriter(file))
+            val json = gson.toJson(transactions)
+            writer.write(json)
+            writer.close()
+
+            Toast.makeText(context, "Backup successful!", Toast.LENGTH_LONG).show()
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Toast.makeText(context, "Backup failed!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun restoreData() {
+        val file = File(context.filesDir, "backup.json")
+        if (!file.exists()) {
+            Toast.makeText(context, "No backup file found!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        try {
+            val content = file.bufferedReader().use { it.readText() }
+            val type = object : TypeToken<List<Transaction>>() {}.type
+            val transactions: List<Transaction> = gson.fromJson(content, type)
+
+            sharedPrefs.saveTransactions(transactions)
+            Toast.makeText(context, "Restore successful! ${transactions.size} transactions loaded.", Toast.LENGTH_LONG).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(context, "Restore failed!", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\utils\SharedPreferenceManager.kt
+
+package com.example.cashly.utils
+
+import android.content.Context
+import android.content.SharedPreferences
+import com.example.cashly.models_entity.Transaction
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
+class SharedPreferenceManager (context: Context) {
+
+    private val sharedPreferences: SharedPreferences = context.getSharedPreferences("transactions", Context.MODE_PRIVATE)
+    private val gson = Gson()
+
+
+    // Save a list of transactions
+    fun saveTransactions(transactions: List<Transaction>) {
+        val editor = sharedPreferences.edit()
+        val json = gson.toJson(transactions)
+        editor.putString("transactions_list", json)
+        editor.apply()
+    }
+
+    // Retrieve a list of transactions
+    fun getTransactions(): List<Transaction> {
+        val json = sharedPreferences.getString("transactions_list", "[]")
+        val type = object : TypeToken<List<Transaction>>() {}.type
+        return gson.fromJson(json, type)
+    }
+
+    // Save the preferred currency and its symbol
+    fun savePreferredCurrency(currency: String, symbol: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("preferred_currency", currency)
+        editor.putString("currency_symbol", symbol)
+        editor.apply()
+    }
+
+    // Remove a transaction by ID or object
+    fun removeTransaction(transaction: Transaction) {
+        val transactions = getTransactions().toMutableList()
+        transactions.remove(transaction)
+        saveTransactions(transactions)
+    }
+
+    // Save user's budget
+    fun saveBudget(budget: Float) {
+        val editor = sharedPreferences.edit()
+        editor.putFloat("user_budget", budget)
+        editor.apply()
+    }
+
+    // Get user's budget
+    fun getBudget(): Float {
+        return sharedPreferences.getFloat("user_budget", 0f) // Default to 0 if no budget is set
+    }
+
+    fun savePreferredName(name: String) {
+        sharedPreferences.edit().putString("preferred_name", name).apply()
+    }
+
+    fun getPreferredName(): String {
+        return sharedPreferences.getString("preferred_name", "") ?: ""
+    }
+
+
+
+    // Retrieve the preferred currency
+    fun getPreferredCurrency(): String {
+        return sharedPreferences.getString("preferred_currency", "USD - US Dollar") ?: "USD - US Dollar"
+    }
+
+    // Retrieve the symbol for the preferred currency
+    fun getCurrencySymbol(): String {
+        return sharedPreferences.getString("currency_symbol", "$") ?: "$"
+    }
+
+    // Set the flag to indicate the initial setup is complete
+    fun setInitialSetupFlag(isDone: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("is_initial_setup_done", isDone)
+        editor.apply()
+    }
+
+    // Get the flag indicating if the initial setup is complete
+    fun getInitialSetupFlag(): Boolean {
+        return sharedPreferences.getBoolean("is_initial_setup_done", false)
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\java\com\example\cashly\viewmodel\TransactionViewModel.kt
+
+package com.example.cashly.viewmodel
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
+import com.example.cashly.database.AppDatabase
+import com.example.cashly.models_entity.Transaction
+import com.example.cashly.database.TransactionRepository
+import kotlinx.coroutines.launch
+
+class TransactionViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val repository: TransactionRepository
+    val allTransactions: LiveData<List<Transaction>>
+
+    init {
+        val dao = AppDatabase.getDatabase(application).transactionDao()
+        repository = TransactionRepository(dao)
+        allTransactions = repository.allTransactions
+    }
+
+    fun insert(transaction: Transaction) = viewModelScope.launch {
+        repository.insert(transaction)
+    }
+
+    fun update(transaction: Transaction) = viewModelScope.launch {
+        repository.update(transaction)
+    }
+
+    fun delete(transaction: Transaction) = viewModelScope.launch {
+        repository.delete(transaction)
+    }
+
+    fun getByCategory(category: String): LiveData<List<Transaction>> = repository.getByCategory(category)
+
+    fun getByType(type: String): LiveData<List<Transaction>> = repository.getByType(type)
+
+    // Method to update the transaction in the repository
+    fun updateTransactionInRepository(transaction: Transaction) {
+        viewModelScope.launch {
+            repository.update(transaction)
+        }
+    }
+}
+
+
+================================================================================
+FILE: app\src\main\res\drawable\arrow_downward_24.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M20,12l-1.41,-1.41L13,16.17V4h-2v12.17l-5.58,-5.59L4,12l8,8 8,-8z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\arrow_upward_24.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M4,12l1.41,1.41L11,7.83V20h2V7.83l5.58,5.59L20,12l-8,-8 -8,8z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\baseline_account_balance_24.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M4,10h3v7h-3z"/>
+      
+    <path android:fillColor="@android:color/white" android:pathData="M10.5,10h3v7h-3z"/>
+      
+    <path android:fillColor="@android:color/white" android:pathData="M2,19h20v3h-20z"/>
+      
+    <path android:fillColor="@android:color/white" android:pathData="M17,10h3v7h-3z"/>
+      
+    <path android:fillColor="@android:color/white" android:pathData="M12,1l-10,5l0,2l20,0l0,-2z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\baseline_account_circle_24.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10s10,-4.48 10,-10S17.52,2 12,2zM12,6c1.93,0 3.5,1.57 3.5,3.5S13.93,13 12,13s-3.5,-1.57 -3.5,-3.5S10.07,6 12,6zM12,20c-2.03,0 -4.43,-0.82 -6.14,-2.88C7.55,15.8 9.68,15 12,15s4.45,0.8 6.14,2.12C16.43,19.18 14.03,20 12,20z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\baseline_add_24.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\baseline_attach_money_24.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M11.8,10.9c-2.27,-0.59 -3,-1.2 -3,-2.15 0,-1.09 1.01,-1.85 2.7,-1.85 1.78,0 2.44,0.85 2.5,2.1h2.21c-0.07,-1.72 -1.12,-3.3 -3.21,-3.81V3h-3v2.16c-1.94,0.42 -3.5,1.68 -3.5,3.61 0,2.31 1.91,3.46 4.7,4.13 2.5,0.6 3,1.48 3,2.41 0,0.69 -0.49,1.79 -2.7,1.79 -2.06,0 -2.87,-0.92 -2.98,-2.1h-2.2c0.12,2.19 1.76,3.42 3.68,3.83V21h3v-2.15c1.95,-0.37 3.5,-1.5 3.5,-3.55 0,-2.84 -2.43,-3.81 -4.7,-4.4z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\baseline_bar_chart_24.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M4,9h4v11h-4z"/>
+      
+    <path android:fillColor="@android:color/white" android:pathData="M16,13h4v7h-4z"/>
+      
+    <path android:fillColor="@android:color/white" android:pathData="M10,4h4v16h-4z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\floating_add.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+      
+    <path android:fillColor="@android:color/white" android:pathData="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+    
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\ic_analytics.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M19,3L5,3c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h14c1.1,0 2,-0.9 2,-2L21,5c0,-1.1 -0.9,-2 -2,-2zM9,17L7,17v-5h2v5zM13,17h-2v-3h2v3zM17,17h-2v-1h2v1zM17,10h-2L15,7h2v3z"/>
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\ic_home.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M10,20v-6h4v6h5v-8h3L12,3 2,12h3v8z"/>
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\ic_launcher_background.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M0,0h108v108h-108z" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M9,0L9,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,0L19,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M29,0L29,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M39,0L39,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M49,0L49,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M59,0L59,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M69,0L69,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M79,0L79,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M89,0L89,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M99,0L99,108"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,9L108,9"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,19L108,19"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,29L108,29"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,39L108,39"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,49L108,49"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,59L108,59"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,69L108,69"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,79L108,79"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,89L108,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,99L108,99"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,29L89,29"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,39L89,39"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,49L89,49"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,59L89,59"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,69L89,69"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M19,79L89,79"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M29,19L29,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M39,19L39,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M49,19L49,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M59,19L59,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M69,19L69,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M79,19L79,89"
+        android:strokeWidth="0.8"
+        android:strokeColor="#33FFFFFF" />
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\ic_launcher_foreground.xml
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="85.84757"
+                android:endY="92.4963"
+                android:startX="42.9492"
+                android:startY="49.59793"
+                android:type="linear">
+                <item
+                    android:color="#44000000"
+                    android:offset="0.0" />
+                <item
+                    android:color="#00000000"
+                    android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillType="nonZero"
+        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+        android:strokeWidth="1"
+        android:strokeColor="#00000000" />
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\ic_notification.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,22c1.1,0 2,-0.9 2,-2h-4c0,1.1 0.9,2 2,2zM18,16v-5c0,-3.07 -1.63,-5.64 -4.5,-6.32L13.5,4c0,-0.83 -0.67,-1.5 -1.5,-1.5s-1.5,0.67 -1.5,1.5v0.68C7.64,5.36 6,7.92 6,11v5l-2,2v1h16v-1l-2,-2zM16,17L8,17v-6c0,-2.48 1.51,-4.5 4,-4.5s4,2.02 4,4.5v6z"/>
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\ic_profile.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M12,12c2.21,0 4,-1.79 4,-4s-1.79,-4 -4,-4 -4,1.79 -4,4 1.79,4 4,4zM12,14c-2.67,0 -8,1.34 -8,4v2h16v-2c0,-2.66 -5.33,-4 -8,-4z"/>
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\drawable\ic_transactions.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M19,3L5,3c-1.1,0 -2,0.9 -2,2v14c0,1.1 0.9,2 2,2h14c1.1,0 2,-0.9 2,-2L21,5c0,-1.1 -0.9,-2 -2,-2zM9,17L7,17v-2h2v2zM13,17h-2v-2h2v2zM17,17h-2v-2h2v2zM17,13h-2v-2h2v2zM13,13h-2v-2h2v2zM9,13L7,13v-2h2v2zM17,9L7,9L7,7h10v2z"/>
+</vector>
+
+
+================================================================================
+FILE: app\src\main\res\font\roboto_black.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:fontProviderAuthority="com.google.android.gms.fonts"
+        app:fontProviderPackage="com.google.android.gms"
+        app:fontProviderQuery="Roboto:wght900"
+        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
+</font-family>
+
+
+================================================================================
+FILE: app\src\main\res\font\roboto_medium.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:fontProviderAuthority="com.google.android.gms.fonts"
+        app:fontProviderPackage="com.google.android.gms"
+        app:fontProviderQuery="Roboto:wght500"
+        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
+</font-family>
+
+
+================================================================================
+FILE: app\src\main\res\font\roboto.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:fontProviderAuthority="com.google.android.gms.fonts"
+        app:fontProviderPackage="com.google.android.gms"
+        app:fontProviderQuery="Roboto"
+        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
+</font-family>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_bottom_nav_bar.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".navigation.BottomNavBar">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutForNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_currency_selection.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startinguserprefs.CurrencySelectionActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lootieAnimationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/basecurrency" />
+
+    <TextView
+        android:id="@+id/welcomeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/welcome_txt"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lootieAnimationView" />
+
+    <TextView
+        android:id="@+id/enterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/select_base_currency"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTxt" />
+
+    <Spinner
+        android:id="@+id/currencySelector"
+        android:layout_width="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        tools:layout_editor_absoluteX="1dp"
+        android:entries="@array/base_currencies_array"
+        tools:layout_editor_absoluteY="486dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/enterName" />
+
+    <TextView
+        android:id="@+id/nameExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/currency_explain"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currencySelector" />
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/confirm"
+        android:textSize="25sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameExplain" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_on_board01.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".onboardscreens.OnBoard01">
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/skip"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="656dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lootieAnimationViewonboard1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/onboardingscreen1" />
+
+    <TextView
+        android:id="@+id/welcomeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/ob_welcome_txt"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lootieAnimationViewonboard1" />
+
+    <TextView
+        android:id="@+id/onboardTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/onBoardTxt1"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTxt" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/onboardTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="612dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/prevRdadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:buttonTint="@color/green"/>
+            <RadioButton
+                android:id="@+id/nowRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/nextRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_vertical"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/prev"
+                android:textColor="@color/green"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/nextOB1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:text="@string/next"
+                android:textSize="20sp"
+                app:cornerRadius="12dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_on_board02.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".onboardscreens.OnBoard02">
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/skip"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="656dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lootieAnimationViewonboard2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/onboardingscreen2" />
+
+    <TextView
+        android:id="@+id/ob_Txt_Topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/ob_txt_Topic_02"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/green"
+        android:layout_marginTop="30dp"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="460dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lootieAnimationViewonboard2"/>
+
+    <TextView
+        android:id="@+id/onboardTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/ob_txt_02"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintTop_toBottomOf="@id/ob_Txt_Topic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/onboardTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="612dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/prevRdadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <RadioButton
+                android:id="@+id/nowRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:buttonTint="@color/green"/>
+
+            <RadioButton
+                android:id="@+id/nextRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_vertical"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/prev"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/green"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/nextOB2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:text="@string/next"
+                android:textSize="20sp"
+                app:cornerRadius="12dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_on_board03.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".onboardscreens.OnBoard03">
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/skip"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="656dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lootieAnimationViewonboard3"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/onboardingscreen3" />
+
+    <TextView
+        android:id="@+id/ob_Txt_Topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/ob_txt_Topic_03"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/green"
+        android:layout_marginTop="30dp"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="460dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lootieAnimationViewonboard3"/>
+
+    <TextView
+        android:id="@+id/onboardTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/ob_txt_03"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ob_Txt_Topic" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/onboardTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="612dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/prevRdadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <RadioButton
+                android:id="@+id/nowRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <RadioButton
+                android:id="@+id/nextRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:buttonTint="@color/green"/>
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_vertical"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="@string/prev"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/green"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/getStarted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:text="@string/started"
+                android:textSize="20sp"
+                app:cornerRadius="12dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_splash.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".logo.SplashActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lootieAnimationView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_rawRes="@raw/animation"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\activity_user_name.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startinguserprefs.UserNameActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lootieAnimationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation" />
+
+    <TextView
+        android:id="@+id/welcomeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/welcome_txt"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lootieAnimationView" />
+
+    <TextView
+        android:id="@+id/enterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/enter_your_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTxt" />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:hint="@string/name_hint"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/enterName" />
+
+    <TextView
+        android:id="@+id/nameExplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/name_explain"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etName" />
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/next"
+        android:textSize="25sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameExplain" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\fragment_add_expence.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".transactionfragments.AddExpence">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvFormTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_new_expence"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Title -->
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_title"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <!-- Amount -->
+            <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_amount"
+                android:inputType="numberDecimal"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <!-- Date -->
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_date"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#DDDDDD"
+                android:padding="8dp"
+                android:entries="@array/expense_categories_array"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Add Transaction Button -->
+            <Button
+                android:id="@+id/btnAddTransaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:text="@string/add_expence_btn_txt"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:cornerRadius="0dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\fragment_add_income.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".transactionfragments.AddIncome">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvFormTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_new_income"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Title -->
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_title"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <!-- Amount -->
+            <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_amount"
+                android:inputType="numberDecimal"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <!-- Date -->
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/hint_date"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none"
+                android:background="#DDDDDD"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#DDDDDD"
+                android:padding="8dp"
+                android:entries="@array/income_categories_array"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Add Transaction Button -->
+            <Button
+                android:id="@+id/btnAddTransaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/green"
+                android:text="@string/add_income_btn_txt"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:cornerRadius="0dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\fragment_analytics.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/analyticsFragmentRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".navigation.Analytics">
+
+    <!-- Container for Income, Expense, and Total Summary -->
+    <LinearLayout
+        android:id="@+id/summaryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_marginTop="24dp">
+
+        <!-- Income -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvIncomeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Income"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvIncome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="#0000FF"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Expenses -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvExpensesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expenses"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvExpenses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="#FF0000"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Total -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvTotalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\fragment_home.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".navigation.Home"
+    android:id="@+id/fragment_container">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp" />
+
+
+
+    <!-- Main FAB -->
+    <!-- Expense Button (bottom right, lower) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/mainFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Add expense"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/primary"
+        app:srcCompat="@drawable/baseline_add_24" />
+
+    <!-- Income Button (above expense) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/incomeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="96dp"
+        android:contentDescription="Add income"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/green"
+        app:srcCompat="@drawable/arrow_upward_24" />
+
+    <!-- Main FAB (above income) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/expencesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="168dp"
+        android:contentDescription="Add transaction"
+        android:tint="@android:color/white"
+        android:backgroundTint="@color/red"
+        app:srcCompat="@drawable/arrow_downward_24" />
+
+</FrameLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\fragment_profile.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".navigation.Profile"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lootieAnimationViewonboard1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/user" />
+
+    <!-- ScrollView containing all elements -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Name Input -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter your name"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/black"
+                        android:backgroundTint="@color/gray_600"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Submit Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <Button
+                        android:id="@+id/saveName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Submit"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Currency Spinner Dropdown -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <Spinner
+                        android:id="@+id/etCurrency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/base_currencies_array"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Action Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <Button
+                        android:id="@+id/saveCurrency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/save_currency"
+                        android:backgroundTint="@color/green"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Budget Input -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <EditText
+                        android:id="@+id/etBudget"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text="BUDGET"
+                        android:textColor="@color/black"
+                        android:backgroundTint="@color/gray_600"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Set Budget Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <Button
+                        android:id="@+id/budgetBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="SET BUDGET"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Backup Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <Button
+                        android:id="@+id/backupBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="BACKUP"
+                        android:backgroundTint="@color/green_500"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Restore Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                cardview:cardCornerRadius="8dp"
+                cardview:cardElevation="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <Button
+                        android:id="@+id/restoreBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="RESTORE"
+                        android:backgroundTint="@color/red_500"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\fragment_transaction_details.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="42dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvDetailsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="@string/transaction_details"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Category -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category:"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetailsCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Amount -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount:"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetailsAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Account -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account:"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetailsAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date:"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetailsDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Type -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Type:"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetailsType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green"
+                android:text="Update"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red"
+                android:text="Delete"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+================================================================================
+FILE: app\src\main\res\layout\transaction_item.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="8dp"
+    android:id="@+id/transaction_item">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Date Container -->
+        <LinearLayout
+            android:id="@+id/dateContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="23"/>
+
+            <TextView
+                android:id="@+id/tvDayName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:background="@color/gray_600"
+                android:textColor="@color/white"
+                android:paddingHorizontal="4dp"
+                android:text="Wed"/>
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="04.2025"/>
+        </LinearLayout>
+
+        <!-- Category and Account -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toEndOf="@id/dateContainer"
+            app:layout_constraintEnd_toStartOf="@id/tvAmount"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivCategory"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Category"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Amount -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tvCurrencySymbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="£"/>
+
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:text="0.00"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
+
+================================================================================
+FILE: app\src\main\res\menu\bottom_nav_menu.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/nav_analytics"
+        android:icon="@drawable/ic_analytics"
+        android:title="@string/analytics" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile" />
+</menu>
+
+
+================================================================================
+FILE: app\src\main\res\menu\bottom_nav.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/home"
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_account_balance_24"/>
+    <item android:title="@string/analytics"
+        android:id="@+id/analytics"
+        android:icon="@drawable/baseline_bar_chart_24"/>
+    <item android:title="@string/profile"
+        android:id="@+id/profile"
+        android:icon="@drawable/baseline_account_circle_24"/>
+</menu>
+
+
+================================================================================
+FILE: app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background"/>
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+</adaptive-icon>
+
+
+================================================================================
+FILE: app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background"/>
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+</adaptive-icon>
+
+
+================================================================================
+FILE: app\src\main\res\values-night\themes.xml
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CashFlow" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\values\colors.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#FF4CAF50</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="red">#FFF44336</color>
+
+    <color name="green_500">#4CAF50</color>
+    <color name="red_500">#F44336</color>
+    <color name="gray_600">#757575</color>
+    <color name="card_stroke">#E0E0E0</color>
+    <color name="chip_background">#F5F5F5</color>
+
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\values\font_certs.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array>
+    <string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>
+            MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTAeFw0wODA0MTUyMzM2NTZaFw0zNTA5MDEyMzM2NTZaMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBANbOLggKv+IxTdGNs8/TGFy0PTP6DHThvbbR24kT9ixcOd9W+EaBPWW+wPPKQmsHxajtWjmQwWfna8mZuSeJS48LIgAZlKkpFeVyxW0qMBujb8X8ETrWy550NaFtI6t9+u7hZeTfHwqNvacKhp1RbE6dBRGWynwMVX8XW8N1+UjFaq6GCJukT4qmpN2afb8sCjUigq0GuMwYXrFVee74bQgLHWGJwPmvmLHC69EH6kWr22ijx4OKXlSIx2xT1AsSHee70w5iDBiK4aph27yH3TxkXy9V89TDdexAcKk/cVHYNnDBapcavl7y0RiQ4biu8ymM8Ga/nmzhRKya6G0cGw8CAQOjgfwwgfkwHQYDVR0OBBYEFI0cxb6VTEM8YYY6FbBMvAPyT+CyMIHJBgNVHSMEgcEwgb6AFI0cxb6VTEM8YYY6FbBMvAPyT+CyoYGapIGXMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbYIJANWFuGx90071MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADggEBABnTDPEF+3iSP0wNfdIjIz1AlnrPzgAIHVvXxunW7SBrDhEglQZBbKJEk5kT0mtKoOD1JMrSu1xuTKEBahWRbqHsXclaXjoBADb0kkjVEJu/Lh5hgYZnOjvlba8Ld7HCKePCVePoTJBdI4fvugnL8TsgK05aIskyY0hKI9L8KfqfGTl1lzOv2KoWD0KWwtAWPoGChZxmQ+nBli+gwYMzM1vAkP+aayLe0a1EQimlOalO762r0GXO0ks+UeXde2Z4e+8S/pf7pITEI/tP+MxJTALw9QUWEv9lKTk+jkbqxbsh8nfBUapfKqYn0eidpwq2AzVp3juYl7//fKnaPhJD9gs=
+        </item>
+    </string-array>
+    <string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>
+            MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDAeFw0wODA4MjEyMzEzMzRaFw0zNjAxMDcyMzEzMzRaMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBAKtWLgDYO6IIrgqWbxJOKdoR8qtW0I9Y4sypEwPpt1TTcvZApxsdyxMJZ2JORland2qSGT2y5b+3JKkedxiLDmpHpDsz2WCbdxgxRczfey5YZnTJ4VZbH0xqWVW/8lGmPav5xVwnIiJS6HXk+BVKZF+JcWjAsb/GEuq/eFdpuzSqeYTcfi6idkyugwfYwXFU1+5fZKUaRKYCwkkFQVfcAs1fXA5V+++FGfvjJ/CxURaSxaBvGdGDhfXE28LWuT9ozCl5xw4Yq5OGazvV24mZVSoOO0yZ31j7kYvtwYK6NeADwbSxDdJEqO4k//0zOHKrUiGYXtqw/A0LFFtqoZKFjnkCAQOjgdkwgdYwHQYDVR0OBBYEFMd9jMIhF1Ylmn/Tgt9r45jk14alMIGmBgNVHSMEgZ4wgZuAFMd9jMIhF1Ylmn/Tgt9r45jk14aloXikdjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLR29vZ2xlIEluYy4xEDAOBgNVBAsTB0FuZHJvaWQxEDAOBgNVBAMTB0FuZHJvaWSCCQDC4IdGZEowjTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBAUAA4IBAQBt0lLO74UwLDYKqs6Tm8/yzKkEu116FmH4rkaymUIE0P9KaMftGlMexFlaYjzmB2OxZyl6euNXEsQH8gjwyxCUKRJNexBiGcCEyj6z+a1fuHHvkiaai+KL8W1EyNmgjmyy8AW7P+LLlkR+ho5zEHatRbM/YAnqGcFh5iZBqpknHf1SKMXFh4dd239FJ1jWYfbMDMy3NS5CTMQ2XFI1MvcyUTdZPErjQfTbQe3aDQsQcafEQPD+nqActifKZ0Np0IS9L9kR/wbNvyz6ENwPiTrjV2KRkEjH78ZMcUQXg0L3BYHJ3lc69Vs5Ddf9uUGGMYldX3WfMBEmh/9iFBDAaTCK
+        </item>
+    </string-array>
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\values\ic_launcher_background.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#3DDC84</color>
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\values\preloaded_fonts.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/roboto</item>
+        <item>@font/roboto_black</item>
+        <item>@font/roboto_medium</item>
+    </array>
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\values\strings.xml
+
+<resources>
+    <string name="app_name">Cashly</string>
+    <string name="hello_welcome_to_home_screen">Hello Welcome To Home Screen!</string>
+    <string name="prev">Prev</string>
+    <string name="onBoardTxt1">Easily log your income and expenses to stay in control of your finances!</string>
+    <string name="onBoardTxt2">Set monthly budgets and get alerts before you overspend!</string>
+    <string name="onBoardTxt3">Export your data safely and restore it anytime!</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="ob_welcome_txt">Track Your Spending</string>
+    <string name="welcome_txt">Welcome to CashFlow!</string>
+    <string name="ob_txt_Topic_02">Budget Smartly</string>
+    <string name="ob_txt_02">Set monthly budgets and get alerts before you overspend!</string>
+    <string name="ob_txt_Topic_03">Backup &amp; Secure</string>
+    <string name="ob_txt_03">Export your data safely and restore it anytime!</string>
+    <string name="started">GET STARTED</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="name_hint">Chamod Sahan</string>
+    <string name="name_explain">This name will be used for personalized reports and summaries.</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="select_base_currency">Select Base Currency</string>
+    <string name="currency_explain">Your base currency should ideally be the one you use most often. All balances and statistics will be shown in this currency.</string>
+    <string name="transactions">Transactions</string>
+    <string name="home">Home</string>
+    <string name="analytics">Analytics</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="expense_updated">Expense updated successfully</string>
+    <string name="income_updated">Income updated successfully</string>
+    <string-array name="base_currencies_array">
+        <item>Select Base Currency</item>
+        <item>USD - US Dollar</item>
+        <item>EUR - Euro</item>
+        <item>LKR - Sri Lankan Rupee</item>
+        <item>INR - Indian Rupee</item>
+        <item>GBP - British Pound</item>
+        <item>JPY - Japanese Yen</item>
+        <item>AUD - Australian Dollar</item>
+        <item>CAD - Canadian Dollar</item>
+    </string-array>
+
+    <string-array name="expense_categories_array">
+        <item>Select Category</item>
+        <item>Food &amp; Dining</item>
+        <item>Transportation</item>
+        <item>Utilities</item>
+        <item>Health &amp; Fitness</item>
+        <item>Entertainment</item>
+        <item>Shopping</item>
+        <item>Education</item>
+        <item>Travel</item>
+        <item>Rent</item>
+        <item>Bills</item>
+        <item>Groceries</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="income_categories_array">
+        <item>Select Category</item>
+        <item>Salary</item>
+        <item>Freelance</item>
+        <item>Investments</item>
+        <item>Business</item>
+        <item>Rental Income</item>
+        <item>Interest</item>
+        <item>Dividends</item>
+        <item>Gift</item>
+        <item>Bonus</item>
+        <item>Refunds</item>
+        <item>Lottery</item>
+        <item>Others</item>
+    </string-array>
+
+    <string name="income">INCOME</string>
+    <string name="add">ADD</string>
+    <string name="expence">EXPENCE</string>
+    <string name="expense">Expense</string>
+    <string name="income_btn">Income</string>
+    <string name="title">Title</string>
+    <string name="enter_expence_title_here">Enter Expence Title Here</string>
+    <string name="amount">Amount</string>
+    <string name="enter_expence_amount">Enter Expence Amount</string>
+    <string name="add_new_expence">ADD NEW EXPENCE</string>
+    <string name="add_new_income">ADD NEW INCOME</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_date">Date</string>
+    <string name="add_expence_btn_txt">ADD EXPENCE</string>
+    <string name="add_income_btn_txt">ADD INCOME</string>
+    <string name="fill_all_fields">Please fill all fields</string>
+    <string name="expense_added">Expence Added</string>
+    <string name="invalid_amount">Invalid Amount</string>
+    <string name="income_added">Income Added</string>
+    <string name="error_empty_name">Please Enter a Valid Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_budget">SET BUDGET</string>
+    <string name="budget">BUDGET</string>
+    <string name="save_currency">SAVE CURRENCY</string>
+    <string name="transaction_details">Transaction Details</string>
+
+
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\values\styles.xml
+
+<resources>
+    <style name="Theme.Cashly" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\values\themes.xml
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CashFlow" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+</resources>
+
+
+================================================================================
+FILE: app\src\main\res\xml\backup_rules.xml
+
+<?xml version="1.0" encoding="utf-8"?><!--
+   Sample backup rules file; uncomment and customize as necessary.
+   See https://developer.android.com/guide/topics/data/autobackup
+   for details.
+   Note: This file is ignored for devices older than API 31
+   See https://developer.android.com/about/versions/12/backup-restore
+-->
+<full-backup-content>
+    <!--
+   <include domain="sharedpref" path="."/>
+   <exclude domain="sharedpref" path="device.xml"/>
+-->
+</full-backup-content>
+
+
+================================================================================
+FILE: app\src\main\res\xml\data_extraction_rules.xml
+
+<?xml version="1.0" encoding="utf-8"?><!--
+   Sample data extraction rules file; uncomment and customize as necessary.
+   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+   for details.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- TODO: Use <include> and <exclude> to control what is backed up.
+        <include .../>
+        <exclude .../>
+        -->
+    </cloud-backup>
+    <!--
+    <device-transfer>
+        <include .../>
+        <exclude .../>
+    </device-transfer>
+    -->
+</data-extraction-rules>
+
+
+================================================================================
+FILE: app\src\test\java\com\example\cashly\ExampleUnitTest.kt
+
+package com.example.cashly
+
+import org.junit.Test
+
+import org.junit.Assert.*
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+class ExampleUnitTest {
+    @Test
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
+    }
+}
+
+
+================================================================================
+FILE: build.gradle.kts
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+}
+
+
+================================================================================
+FILE: gradle.properties
+
+# Project-wide Gradle settings.
+# IDE (e.g. Android Studio) users:
+# Gradle settings configured through the IDE *will override*
+# any settings specified in this file.
+# For more details on how to configure your build environment visit
+# http://www.gradle.org/docs/current/userguide/build_environment.html
+# Specifies the JVM arguments used for the daemon process.
+# The setting is particularly useful for tweaking memory settings.
+org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+# When configured, Gradle will run in incubating parallel mode.
+# This option should only be used with decoupled projects. For more details, visit
+# https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects
+# org.gradle.parallel=true
+# AndroidX package structure to make it clearer which packages are bundled with the
+# Android operating system, and which are packaged with your app's APK
+# https://developer.android.com/topic/libraries/support-library/androidx-rn
+android.useAndroidX=true
+# Kotlin code style for this project: "official" or "obsolete":
+kotlin.code.style=official
+# Enables namespacing of each library's R class so that its R class includes only the
+# resources declared in the library itself and none from the library's dependencies,
+# thereby reducing the size of the R class for that library
+android.nonTransitiveRClass=true
+
+
+================================================================================
+FILE: gradle\wrapper\gradle-wrapper.properties
+
+#Tue Apr 22 17:50:38 IST 2025
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.11.1-bin.zip
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+
+
+================================================================================
+FILE: local.properties
+
+## This file is automatically generated by Android Studio.
+# Do not modify this file -- YOUR CHANGES WILL BE ERASED!
+#
+# This file should *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+sdk.dir=C\:\\Users\\ADMIN\\AppData\\Local\\Android\\Sdk
+
+
+================================================================================
+FILE: settings.gradle.kts
+
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "Cashly"
+include(":app")
+
+

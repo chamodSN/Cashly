@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#FF4CAF50</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="red">#FFF44336</color>
+
+    <color name="green_500">#4CAF50</color>
+    <color name="red_500">#F44336</color>
+    <color name="gray_600">#757575</color>
+    <color name="card_stroke">#E0E0E0</color>
+    <color name="chip_background">#F5F5F5</color>
+
+    <!-- New: subtle background + accent for a less flat UI -->
+    <color name="background_light">#FAFAFA</color>
+    <color name="divider">#EEEEEE</color>
+</resources>

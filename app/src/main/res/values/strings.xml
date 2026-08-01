@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">Cashly</string>
+    <string name="hello_welcome_to_home_screen">Hello Welcome To Home Screen!</string>
+    <string name="prev">Prev</string>
+    <string name="onBoardTxt1">Easily log your income and expenses to stay in control of your finances!</string>
+    <string name="onBoardTxt2">Set monthly budgets and get alerts before you overspend!</string>
+    <string name="onBoardTxt3">Export your data safely and restore it anytime!</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="ob_welcome_txt">Track Your Spending</string>
+    <string name="welcome_txt">Welcome to CashFlow!</string>
+    <string name="ob_txt_Topic_02">Budget Smartly</string>
+    <string name="ob_txt_02">Set monthly budgets and get alerts before you overspend!</string>
+    <string name="ob_txt_Topic_03">Backup &amp; Secure</string>
+    <string name="ob_txt_03">Export your data safely and restore it anytime!</string>
+    <string name="started">GET STARTED</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="name_hint">Chamod Sahan</string>
+    <string name="name_explain">This name will be used for personalized reports and summaries.</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="select_base_currency">Select Base Currency</string>
+    <string name="currency_explain">Your base currency should ideally be the one you use most often. All balances and statistics will be shown in this currency.</string>
+    <string name="transactions">Transactions</string>
+    <string name="home">Home</string>
+    <string name="analytics">Analytics</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="expense_updated">Expense updated successfully</string>
+    <string name="income_updated">Income updated successfully</string>
+    <string-array name="base_currencies_array">
+        <item>Select Base Currency</item>
+        <item>USD - US Dollar</item>
+        <item>EUR - Euro</item>
+        <item>LKR - Sri Lankan Rupee</item>
+        <item>INR - Indian Rupee</item>
+        <item>GBP - British Pound</item>
+        <item>JPY - Japanese Yen</item>
+        <item>AUD - Australian Dollar</item>
+        <item>CAD - Canadian Dollar</item>
+    </string-array>
+
+    <string-array name="expense_categories_array">
+        <item>Select Category</item>
+        <item>Food &amp; Dining</item>
+        <item>Transportation</item>
+        <item>Utilities</item>
+        <item>Health &amp; Fitness</item>
+        <item>Entertainment</item>
+        <item>Shopping</item>
+        <item>Education</item>
+        <item>Travel</item>
+        <item>Rent</item>
+        <item>Bills</item>
+        <item>Groceries</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="income_categories_array">
+        <item>Select Category</item>
+        <item>Salary</item>
+        <item>Freelance</item>
+        <item>Investments</item>
+        <item>Business</item>
+        <item>Rental Income</item>
+        <item>Interest</item>
+        <item>Dividends</item>
+        <item>Gift</item>
+        <item>Bonus</item>
+        <item>Refunds</item>
+        <item>Lottery</item>
+        <item>Others</item>
+    </string-array>
+
+    <string name="income">INCOME</string>
+    <string name="add">ADD</string>
+    <string name="expence">EXPENCE</string>
+    <string name="expense">Expense</string>
+    <string name="income_btn">Income</string>
+    <string name="title">Title</string>
+    <string name="enter_expence_title_here">Enter Expence Title Here</string>
+    <string name="amount">Amount</string>
+    <string name="enter_expence_amount">Enter Expence Amount</string>
+    <string name="add_new_expence">ADD NEW EXPENCE</string>
+    <string name="add_new_income">ADD NEW INCOME</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_date">Date</string>
+    <string name="add_expence_btn_txt">ADD EXPENCE</string>
+    <string name="add_income_btn_txt">ADD INCOME</string>
+    <string name="fill_all_fields">Please fill all fields</string>
+    <string name="expense_added">Expence Added</string>
+    <string name="invalid_amount">Invalid Amount</string>
+    <string name="income_added">Income Added</string>
+    <string name="error_empty_name">Please Enter a Valid Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_budget">SET BUDGET</string>
+    <string name="budget">BUDGET</string>
+    <string name="save_currency">SAVE CURRENCY</string>
+    <string name="transaction_details">Transaction Details</string>
+
+
+</resources>
