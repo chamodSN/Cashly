@@ -10,13 +10,15 @@ import androidx.fragment.app.activityViewModels
 import com.example.cashly.R
 import com.example.cashly.utils.SharedPreferenceManager
 import com.example.cashly.viewmodel.TransactionViewModel
+import java.util.Locale
 
 class Analytics : Fragment() {
 
     private val transactionViewModel: TransactionViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_analytics, container, false)
@@ -31,17 +33,21 @@ class Analytics : Fragment() {
             val expenses = transactions.filter { it.type.equals("expense", true) }.sumOf { it.amount }
             val balance = income - expenses
 
-            tvIncome.text = "$symbol${String.format("%.2f", income)}"
-            tvExpenses.text = "$symbol${String.format("%.2f", expenses)}"
-            tvTotal.text = "$symbol${String.format("%.2f", balance)}"
+            tvIncome.text = formatAmount(symbol, income)
+            tvExpenses.text = formatAmount(symbol, expenses)
+            tvTotal.text = formatAmount(symbol, balance)
         }
 
         return view
+    }
+
+    private fun formatAmount(symbol: String, amount: Double): String {
+        val formatted = String.format(Locale.getDefault(), "%.2f", amount)
+        return symbol + formatted
     }
 
     companion object {
         @JvmStatic
         fun newInstance() = Analytics()
     }
-}
 }
