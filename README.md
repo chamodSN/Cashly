@@ -57,19 +57,27 @@ Transactions can be backed up and restored as JSON through the app-private inter
 5. Users can add income or expense transactions from the home screen.
 6. Users can review transaction details, delete entries, view analytics, and manage profile settings.
 
-## UI Preview
+## Screens
 
-| Group | Screen | Purpose | Preview |
-| --- | --- | --- | --- |
-| Common flow | Splash screen | Entry point and initial routing | ![Splash screen](UI/splash%20screen.jpeg) |
-| Common flow | Onboarding 1 | Introduces the app | ![Onboarding 1](UI/onboard%201.jpeg) |
-| Common flow | Onboarding 2 | Continues the introduction | ![Onboarding 2](UI/onboard%202.jpeg) |
-| Common flow | Onboarding 3 | Final onboarding step | ![Onboarding 3](UI/onboard%203.jpeg) |
-| Common flow | Name setup | Collects the user name | ![Name setup](UI/add%20name%20screen.jpeg) |
-| Common flow | Currency selection | Stores the preferred base currency | ![Currency selection](UI/currency%20selection%20screen.jpeg) |
-| Dashboard | Home | Shows the transaction list and add actions | ![Home](UI/Home.jpeg) |
-| Dashboard | Analytics | Summarizes income, expenses, and balance | ![Analytics](UI/Analytics.jpeg) |
-| Dashboard | Profile | Manages name, currency, budget, backup, and restore | ![Profile](UI/Profile.jpeg) |
+### Splash and Onboarding
+
+| Splash screen | Onboarding screen 1 | Onboarding screen 2 |
+| --- | --- | --- |
+| <img src="UI/splash screen.jpeg" width="150" alt="Splash screen" /> | <img src="UI/onboard 1.jpeg" width="150" alt="Onboarding screen 1" /> | <img src="UI/onboard 2.jpeg" width="150" alt="Onboarding screen 2" /> |
+| Onboarding screen 3 |  |  |
+| <img src="UI/onboard 3.jpeg" width="150" alt="Onboarding screen 3" /> |  |  |
+
+### Setup
+
+| Name setup screen | Currency selection screen |
+| --- | --- |
+| <img src="UI/add name screen.jpeg" width="150" alt="Name setup screen" /> | <img src="UI/currency selection screen.jpeg" width="150" alt="Currency selection screen" /> |
+
+### Dashboard
+
+| Home screen | Analytics screen | Profile screen |
+| --- | --- | --- |
+| <img src="UI/Home.jpeg" width="150" alt="Home screen" /> | <img src="UI/Analytics.jpeg" width="150" alt="Analytics screen" /> | <img src="UI/Profile.jpeg" width="150" alt="Profile screen" /> |
 
 ## Project Structure
 
